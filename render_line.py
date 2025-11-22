@@ -12,14 +12,14 @@ line = len(sys.argv) > 1 and sys.argv[1] or "Examon"
 
 cursor = db.cursor()
 
-item = cursor.execute('''select id, name, previous, next, stage
+item = cursor.execute('''select id, name, previous, next, stage, attribute
                          from digimon
                          where name =?''', (line,)).fetchone()
 
 
 def digimon_by_id(id):
     return cursor.execute(
-        '''select id, name, previous, next, stage
+        '''select id, name, previous, next, stage, attribute
            from digimon
            where id=?''', (id,)).fetchone()
 
@@ -30,7 +30,7 @@ def recursive_add(G, item, seen: Set, do_next=False, do_previous=False):
 
     stage = item[4]
 
-    G.add_node(item[0], name=item[1])
+    G.add_node(item[0], name=item[1], stage=stage, attribute=item[5])
     seen.add(item[0])
 
     prev = item[2] and json.loads(item[2]) or []

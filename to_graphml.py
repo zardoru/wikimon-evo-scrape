@@ -13,13 +13,13 @@ digimon = ([{
     "previous": x[2] and json.loads(x[2]) or [],
     "next": x[3] and json.loads(x[3]) or []
 } for x in cur
-.execute('select id, name, previous, next, url from digimon')
+.execute('select id, name, previous, next, url, stage, attribute from digimon')
 .fetchall()])
 
 # print(json.dumps(digimon, indent=4))
 
 for d in digimon:
-    G.add_node(d['id'], name=d['name'])
+    G.add_node(d['id'], name=d['name'], stage=d['stage'], attribute=d['attribute'])
 
 for d in digimon:
     previous_connections = [(d['id'], item) for item in d['previous']]

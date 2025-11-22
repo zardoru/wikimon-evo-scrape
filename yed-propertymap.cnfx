@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<styles>
+  <style name="digimon" scope="node" selectionOnly="false">
+    <mapping>
+      <source name="name" origin="customProperty" type="string"/>
+      <target name="labelText" type="string">
+        <hints>
+          <hint type="int">0</hint>
+          <hint type="boolean">true</hint>
+          <hint type="string">replace</hint>
+        </hints>
+      </target>
+      <conversion type="asIs"/>
+    </mapping>
+    <mapping>
+      <source name="attribute" origin="customProperty" type="string"/>
+      <target name="fillColor" type="color">
+        <hints/>
+      </target>
+      <conversion type="discrete">
+        <discrete>
+          <value>Vaccine</value>
+          <result>#99ccff</result>
+        </discrete>
+        <discrete>
+          <value>Virus</value>
+          <result>#ffcc99</result>
+        </discrete>
+        <discrete>
+          <value>Data</value>
+          <result>#ccffcc</result>
+        </discrete>
+        <discrete>
+          <value>None</value>
+          <result>#ff99cc</result>
+        </discrete>
+      </conversion>
+    </mapping>
+    <mapping>
+      <source name="stage" origin="customProperty" type="int"/>
+      <target name="borderStyleColor" type="color">
+        <hints/>
+      </target>
+      <conversion type="discrete">
+        <discrete>
+          <value>1</value>
+          <result>#ff0000</result>
+        </discrete>
+        <discrete>
+          <value>2</value>
+          <result>#ff9900</result>
+        </discrete>
+        <discrete>
+          <value>3</value>
+          <result>#99cc00</result>
+        </discrete>
+        <discrete>
+          <value>4</value>
+          <result>#800080</result>
+        </discrete>
+        <discrete>
+          <value>5</value>
+          <result>#3366ff</result>
+        </discrete>
+        <discrete>
+          <value>6</value>
+          <result>#ffff00</result>
+        </discrete>
+      </conversion>
+    </mapping>
+  </style>
+</styles>

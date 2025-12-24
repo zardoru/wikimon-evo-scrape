@@ -2,7 +2,7 @@ import networkx as nx
 import sqlite3 as sql
 import json
 
-db = sql.connect('digi.db')
+db = sql.connect('../../digi.db')
 G = nx.Graph()
 
 cur = db.cursor()

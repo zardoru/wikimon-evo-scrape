@@ -1,3 +1,4 @@
+import os
 import sqlite3 as sql
 from tqdm import tqdm
 
@@ -56,7 +57,7 @@ def get_attribute(soap):
     return adjacent and adjacent.text or ""
 
 def update_all():
-    digilist = db.execute("select id, html from digimon where html is not null").fetchall()
+    digilist = db.execute("select id, html from digimon where html is not null and attribute is null").fetchall()
     updates = []
 
     for digimon in tqdm(digilist):
@@ -67,4 +68,6 @@ def update_all():
     db.commit()
 
 if  __name__ == "__main__":
+    print("updating digimon attributes ...")
+    print(f"cwd: {os.getcwd()}")
     update_all()

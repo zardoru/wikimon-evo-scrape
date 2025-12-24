@@ -1,13 +1,11 @@
 import sqlite3
-import json
-import time
 import requests
 from bs4 import BeautifulSoup
 
 # Configuration
 BASE_URL = "https://wikimon.net"
 START = "/Category:List_of_Cards"
-DB_FILE = "digi.db"
+DB_FILE = "../../digi.db"
 
 # Database connection
 conn = sqlite3.connect(DB_FILE, check_same_thread=False)

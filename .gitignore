@@ -4,3 +4,4 @@
 *.graphml
 *.db
 *.db.bak
+**/__pycache__

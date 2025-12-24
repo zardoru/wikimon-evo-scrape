@@ -11,7 +11,6 @@ update digimon
 set previous=(
     select grp from grouped where id=digimon.id
 ) where 1=1;
-where previous is null;
 
 with expanded as (
     select distinct digi.id, (select indig.id from digimon indig where url=json_each.value) as next_evo
@@ -26,4 +25,3 @@ update digimon
 set next=(
     select grp from grouped where id=digimon.id
 ) where 1=1;
-where next is null;
